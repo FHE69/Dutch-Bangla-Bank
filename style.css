@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #1e293b;
+
+    background: linear-gradient(
+        to bottom right,
+        #f8fafc,
+        #ffffff,
+        #f1f5f9
+    );
+}
+
+
+/* Their max-w-6xl */
+.container {
+    width: 100%;
+    max-width: 1152px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+
+/* Their grid */
+.details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+/* Their card */
+.field-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid rgba(226, 232, 240, 0.7);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+
+/* Actual hover behavior */
+.field-card:hover {
+    transform: translateY(-4px);
+
+    border-color: transparent;
+
+    box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Colored strip */
+.accent {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    transition: width 300ms ease;
+}
+
+.field-card:hover .accent {
+    width: 6px;
+}
+
+
+/* Content */
+.field-content {
+    position: relative;
+
+    padding:
+        10px
+        16px
+        10px
+        20px;
+
+    transition: transform 300ms ease;
+}
+
+.field-card:hover .field-content {
+    transform: translateX(10px);
+}
+
+
+/* Heading */
+.field-title {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.025em;
+}
+
+
+/* Value */
+.field-value {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.625;
+}
+
+
+/* Colors */
+.blue .accent {
+    background: #0055A5;
+}
+
+.blue .field-title {
+    color: #0055A5;
+}
+
+
+.red .accent {
+    background: #E31C23;
+}
+
+.red .field-title {
+    color: #E31C23;
+}
+
+
+.green .accent {
+    background: #009639;
+}
+
+.green .field-title {
+    color: #009639;
+}
+
+
+/* Phone layout */
+@media (max-width: 639px) {
+
+    .details-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .field-title {
+        font-size: 12px;
+    }
+
+    .field-value {
+        font-size: 14px;
+    }
+}
